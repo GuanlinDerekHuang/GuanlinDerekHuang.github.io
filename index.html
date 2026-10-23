@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guanlin Huang</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Guanlin Huang — undergraduate researcher. Projects, publications, and experience.">
+<meta name="description" content="Guanlin Derek Huang, undergraduate researcher at Purdue working on robot learning for manipulation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -69,7 +69,7 @@ nav a:hover { color: var(--accent); text-decoration: none; }
 /* Profile */
 .profile { display: grid; grid-template-columns: 11rem 1fr; gap: 2.25rem; align-items: start; padding-block: 3rem 2rem; }
 .photo {
-  width: 11rem; max-width: 100%; aspect-ratio: 4 / 5; border-radius: 6px; object-fit: cover;
+  width: 11rem; max-width: 100%; aspect-ratio: 1 / 1; border-radius: 6px; object-fit: cover;
   background: var(--surface); border: 1px solid var(--rule);
   display: grid; place-items: center; color: var(--muted);
   font: 400 2.6rem var(--display);
@@ -160,8 +160,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <a class="brand" href="#top">Guanlin Huang</a>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#news">News</a></li>
-        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
       </ul>
@@ -171,86 +170,65 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
 
 <main class="wrap" id="top">
   <div class="profile">
-    <!-- Replace with: <img class="photo" src="assets/photo.jpg" alt="Guanlin Huang"> -->
-    <div class="photo" role="img" aria-label="Photo placeholder">GH</div>
+    <img class="photo" src="assets/photo.jpg" alt="Guanlin Derek Huang">
     <div class="profile-text">
-      <h1>Guanlin Huang</h1>
-      <p class="role">Undergraduate researcher · [University], Class of [Year]</p>
+      <h1>Guanlin Derek Huang</h1>
+      <p class="role">Undergraduate, Computer Engineering / Industrial Engineering · Purdue University</p>
       <div class="bio">
-        <p>I'm an undergraduate studying [major] at [University], where I work with [Advisor Name] in the [Lab Name]. My research focuses on [research area, e.g. robot learning and computer vision].</p>
-        <p>I'm especially interested in [a specific question you want to work on]. I'm applying to Ph.D. programs for Fall [Year].</p>
+        <p>I am an undergraduate student in Purdue University's College of Engineering and an undergraduate research assistant in the Purdue Mechanisms and Robotics Systems Lab (MARS), advised by Prof. Yu She.</p>
+        <p>My research focuses on learning algorithms and policies for robotic manipulation, with the goal of letting robots perform everyday manipulation tasks with human-level precision and adaptability.</p>
       </div>
-      <p class="contact">your.email [at] university.edu</p>
+      <p class="contact">huan1803 [at] purdue [dot] edu</p>
       <ul class="links">
         <li><a class="cv" href="assets/cv.pdf">CV</a></li>
-        <li><a href="https://github.com/YOUR-USERNAME">
+        <li><a href="https://github.com/GuanlinDerekHuang">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
           GitHub</a></li>
-        <li><a href="https://scholar.google.com/">Google Scholar</a></li>
-        <li><a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a></li>
       </ul>
     </div>
   </div>
 
-  <section id="news">
-    <h2>News</h2>
-    <ul class="news">
-      <li><time>Oct 2026</time><span>Example: Presented a poster at [Conference / Symposium].</span></li>
-      <li><time>Sep 2026</time><span>Example: Our paper "[Title]" was accepted to [Venue].</span></li>
-      <li><time>Jun 2026</time><span>Example: Started a summer research internship at [Lab / Company].</span></li>
+  <section id="research">
+    <h2>Research</h2>
+    <ul class="timeline">
+      <li>
+        <h3>Dexterous Hand Manipulation Policy Development</h3><span class="when">Oct 2025 – Present</span>
+        <p class="org">Mechanisms and Robotics Systems Lab (MARS), Purdue · Prof. Yu She</p>
+        <p class="what">Developing and testing a new arm controller for the UR5 and Franka Panda, validated in MuJoCo, and working on the dexterous hand team training VLA/VLM-based manipulation policies.</p>
+      </li>
+      <li>
+        <h3>Midwest Power Grid Capacity Expansion Study</h3><span class="when">Apr 2025 – Oct 2025</span>
+        <p class="org">Integrated Intelligent Electric Power Grid Lab, Purdue · Prof. Andrew Liu</p>
+        <p class="what">Built inputs for the SWITCH linear-programming capacity expansion model to study resource adequacy in the MISO region under decarbonization, using stochastic multi-weather-year scenarios for renewables and load.</p>
+      </li>
+      <li>
+        <h3>Robotics and Autonomous Systems VIP</h3><span class="when">Jan 2024 – May 2024</span>
+        <p class="org">General Electric Vertically Integrated Project, Purdue</p>
+        <p class="what">Implemented forward/inverse kinematics, a Jacobian-based IK solver with singularity handling, and a Cartesian PD controller for a 2-link arm, simulated in MuJoCo.</p>
+      </li>
+      <li>
+        <h3>Machine Learning in Medical Imaging</h3><span class="when">Jun 2021 – Aug 2021</span>
+        <p class="org">MIT · Prof. Manolis Kellis</p>
+        <p class="what">Semantic segmentation and classification of liver cancer histopathology images with one-shot learning; co-wrote a paper and presented findings to Prof. Kellis.</p>
+      </li>
+      <li>
+        <h3>Beijing Rental Housing Market Study</h3><span class="when">May 2021 – Jun 2021</span>
+        <p class="org">Tsinghua University · Prof. Mao Bo</p>
+        <p class="what">Scraped and cleaned large-scale rental listings and analyzed price distributions across Beijing districts with statistical modeling and heatmaps.</p>
+      </li>
     </ul>
-    <details>
-      <summary><span class="more">Show older news</span><span class="less">Show less</span></summary>
-      <ul class="news">
-        <li><time>Jan 2026</time><span>Example: Joined the [Lab Name] as an undergraduate researcher.</span></li>
-      </ul>
-    </details>
-  </section>
-
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="entries">
-      <article class="entry">
-        <!-- Replace with: <img class="thumb" src="assets/pub1.png" alt=""> -->
-        <div class="thumb">figure / gif</div>
-        <div class="entry-body">
-          <h3>[Paper Title Goes Here: A Short, Descriptive Subtitle]</h3>
-          <p class="authors"><span class="me">Guanlin Huang</span>, [Co-author], [Co-author], [Advisor]</p>
-          <p class="venue">[Conference or Workshop Name], 2026 <span class="tag">Under review</span></p>
-          <div class="btns"><a href="#">Paper</a><a href="#">arXiv</a><a href="#">Code</a><a href="#">Website</a></div>
-        </div>
-      </article>
-      <article class="entry">
-        <div class="thumb">figure / gif</div>
-        <div class="entry-body">
-          <h3>[Co-authored Paper Title]</h3>
-          <p class="authors">[First Author], <span class="me">Guanlin Huang</span>, [Advisor]</p>
-          <p class="venue">[Journal or Conference], 2026</p>
-          <div class="btns"><a href="#">Paper</a><a href="#">Video</a></div>
-        </div>
-      </article>
-    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="entries">
       <article class="entry">
-        <div class="thumb">screenshot</div>
+        <div class="thumb">iPhone → SAM 2 → LeRobot</div>
         <div class="entry-body">
-          <h3>[Project Name]</h3>
-          <p class="venue">[Course / Lab / Personal project] · 2026</p>
-          <p class="desc">One or two sentences: what you built, the method or tools, and the result (for example, a number or a demo).</p>
-          <div class="btns"><a href="#">Code</a><a href="#">Demo</a></div>
-        </div>
-      </article>
-      <article class="entry">
-        <div class="thumb">screenshot</div>
-        <div class="entry-body">
-          <h3>[Project Name]</h3>
-          <p class="venue">[Hackathon / Class] · 2025</p>
-          <p class="desc">One or two sentences describing the problem and what you did.</p>
-          <div class="btns"><a href="#">Code</a><a href="#">Report</a></div>
+          <h3>SmartData</h3>
+          <p class="venue">Undergraduate research project · 2026</p>
+          <p class="desc">A pipeline that turns recordings from an iPhone mounted on a handheld two-finger gripper into labeled, synchronized datasets for imitation learning. It reproduces the data collection and labeling stage of Contact-Anchored Policies (CAP): SAM 2 tracks the gripper and object, Moondream 2 grounds the target, Rerun visualizes each trial, and the output is a LeRobot dataset for training a VQ-BeT policy.</p>
+          <div class="btns"><a href="https://github.com/GuanlinDerekHuang/SmartData">Code</a></div>
         </div>
       </article>
     </div>
@@ -260,25 +238,21 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <h2>Experience</h2>
     <ul class="timeline">
       <li>
-        <h3>Undergraduate Researcher</h3><span class="when">Jan 2026 – Present</span>
-        <p class="org">[Lab Name], [University] · Advisor: [Name]</p>
-        <p class="what">What you work on, in one sentence.</p>
+        <h3>NAND Development and Validation Intern</h3><span class="when">Jun 2024 – Aug 2024</span>
+        <p class="org">Innogrit</p>
+        <p class="what">Ran chip validation tests and analyzed NAND endurance, latency, and error behavior, debugging over I²C and SMBus with Python, C/C++, and Verilog.</p>
       </li>
       <li>
-        <h3>Research Intern</h3><span class="when">Jun – Aug 2026</span>
-        <p class="org">[Company or Institute]</p>
-        <p class="what">What you built or studied, in one sentence.</p>
-      </li>
-      <li>
-        <h3>Teaching Assistant, [Course Code]</h3><span class="when">Fall 2025</span>
-        <p class="org">[University]</p>
+        <h3>Event Planning Secretary &amp; Vice Chair, Career Development</h3><span class="when">Aug 2025 – Present</span>
+        <p class="org">Purdue Chinese Students and Scholars Association</p>
+        <p class="what">Coordinate student event logistics, maintain alumni relationships, and host company information sessions.</p>
       </li>
     </ul>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Guanlin Huang · Last updated October 2026</div>
+  <div class="wrap">© 2026 Guanlin Derek Huang · Last updated October 2026</div>
 </footer>
 </body>
 </html>
