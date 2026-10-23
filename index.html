@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guanlin Huang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Guanlin Huang — undergraduate researcher. Projects, publications, and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; sticky name bar; profile row (photo | bio); sections stacked with small-caps labels. */
+:root {
+  --bg: #ffffff;
+  --surface: #f3f5f8;
+  --ink: #18202b;
+  --muted: #5b6676;
+  --rule: #dfe3ea;
+  --accent: #1d4f91;
+  --accent-soft: #e6eef9;
+  --display: "Libre Caslon Display", "Iowan Old Style", Georgia, serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --col: 52rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --surface: #1a2029; --ink: #e6eaf0; --muted: #9aa5b5;
+    --rule: #2a313c; --accent: #8db4ec; --accent-soft: #1d2a3d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #1a2029; --ink: #e6eaf0; --muted: #9aa5b5;
+  --rule: #2a313c; --accent: #8db4ec; --accent-soft: #1d2a3d; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--body);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  max-width: var(--col); margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-size: 1.35rem; color: var(--ink); }
+.brand:hover { text-decoration: none; }
+nav ul { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav a { color: var(--muted); font-size: .95rem; font-weight: 600; }
+nav a:hover { color: var(--accent); text-decoration: none; }
+
+/* Profile */
+.profile { display: grid; grid-template-columns: 11rem 1fr; gap: 2.25rem; align-items: start; padding-block: 3rem 2rem; }
+.photo {
+  width: 11rem; max-width: 100%; aspect-ratio: 4 / 5; border-radius: 6px; object-fit: cover;
+  background: var(--surface); border: 1px solid var(--rule);
+  display: grid; place-items: center; color: var(--muted);
+  font: 400 2.6rem var(--display);
+}
+.profile-text { min-width: 0; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.05; margin: 0 0 .25rem; text-wrap: balance; }
+.native { font-size: 1.1rem; color: var(--muted); margin-left: .35rem; font-family: var(--body); }
+.role { color: var(--muted); margin: 0 0 1rem; }
+.bio { margin: 0 0 1.25rem; max-width: 65ch; }
+.bio p { margin: 0 0 .75rem; }
+.contact { font-family: var(--mono); font-size: .85rem; color: var(--muted); margin: 0 0 1rem; }
+.links { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0; list-style: none; }
+.links a {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .3rem .75rem; border: 1px solid var(--rule); border-radius: 999px;
+  color: var(--ink); font-size: .9rem; font-weight: 600;
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.links svg { width: 1em; height: 1em; fill: currentColor; }
+.links .cv { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.links .cv:hover { color: var(--bg); opacity: .9; }
+
+/* Sections */
+section { padding-block: 1.75rem; border-top: 1px solid var(--rule); }
+h2 {
+  font: 700 .8rem/1 var(--body); text-transform: uppercase; letter-spacing: .14em;
+  color: var(--muted); margin: 0 0 1.25rem;
+}
+h3 { font-size: 1.05rem; line-height: 1.35; margin: 0 0 .2rem; text-wrap: balance; }
+
+/* News */
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.news li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; }
+.news time { font-family: var(--mono); font-size: .85rem; color: var(--muted); padding-top: .15rem; font-variant-numeric: tabular-nums; }
+.news span { min-width: 0; }
+details summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: .9rem; margin-top: .6rem; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] summary .more { display: none; }
+details:not([open]) summary .less { display: none; }
+details .news { margin-top: .45rem; }
+
+/* Publications + projects */
+.entries { display: grid; gap: 1.75rem; }
+.entry { display: grid; grid-template-columns: 12rem 1fr; gap: 1.5rem; align-items: start; }
+.thumb {
+  width: 100%; max-width: 100%; aspect-ratio: 16 / 10; border-radius: 4px; object-fit: cover;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--accent) 8%, transparent) 10px 11px),
+    var(--surface);
+  border: 1px solid var(--rule);
+  display: grid; place-items: center; color: var(--muted); font: 500 .75rem var(--mono);
+}
+.entry-body { min-width: 0; }
+.authors { margin: 0; color: var(--muted); font-size: .95rem; }
+.authors .me { color: var(--ink); font-weight: 700; }
+.venue { margin: .1rem 0 .5rem; font-style: italic; }
+.venue .tag { font-style: normal; font-size: .75rem; font-weight: 700; letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); padding: .1rem .45rem; border-radius: 3px; margin-left: .35rem; }
+.desc { margin: 0 0 .5rem; font-size: .97rem; }
+.btns { display: flex; flex-wrap: wrap; gap: .4rem; }
+.btns a { font: 500 .78rem var(--mono); padding: .2rem .55rem; border: 1px solid var(--rule); border-radius: 3px; }
+.btns a:hover { border-color: var(--accent); text-decoration: none; }
+.sub { font-weight: 600; font-size: .95rem; margin: 0 0 1rem; color: var(--ink); }
+.sub + .entries + .sub { margin-top: 2rem; }
+
+/* Experience */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.timeline li { display: grid; grid-template-columns: 1fr auto; gap: .1rem 1rem; }
+.timeline .when { font-family: var(--mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.timeline .org { color: var(--muted); grid-column: 1 / -1; margin: 0; }
+.timeline .what { grid-column: 1 / -1; margin: .2rem 0 0; font-size: .97rem; max-width: 65ch; }
+
+footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color: var(--muted); font-size: .85rem; }
+
+@media (max-width: 640px) {
+  .profile { grid-template-columns: 1fr; gap: 1.25rem; padding-block: 2rem 1.5rem; }
+  .photo { width: 8rem; }
+  .entry { grid-template-columns: 1fr; gap: .75rem; }
+  .thumb { max-width: 20rem; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
+  nav ul { gap: .9rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Guanlin Huang</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="profile">
+    <!-- Replace with: <img class="photo" src="assets/photo.jpg" alt="Guanlin Huang"> -->
+    <div class="photo" role="img" aria-label="Photo placeholder">GH</div>
+    <div class="profile-text">
+      <h1>Guanlin Huang</h1>
+      <p class="role">Undergraduate researcher · [University], Class of [Year]</p>
+      <div class="bio">
+        <p>I'm an undergraduate studying [major] at [University], where I work with [Advisor Name] in the [Lab Name]. My research focuses on [research area, e.g. robot learning and computer vision].</p>
+        <p>I'm especially interested in [a specific question you want to work on]. I'm applying to Ph.D. programs for Fall [Year].</p>
+      </div>
+      <p class="contact">your.email [at] university.edu</p>
+      <ul class="links">
+        <li><a class="cv" href="assets/cv.pdf">CV</a></li>
+        <li><a href="https://github.com/YOUR-USERNAME">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub</a></li>
+        <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><time>Oct 2026</time><span>Example: Presented a poster at [Conference / Symposium].</span></li>
+      <li><time>Sep 2026</time><span>Example: Our paper "[Title]" was accepted to [Venue].</span></li>
+      <li><time>Jun 2026</time><span>Example: Started a summer research internship at [Lab / Company].</span></li>
+    </ul>
+    <details>
+      <summary><span class="more">Show older news</span><span class="less">Show less</span></summary>
+      <ul class="news">
+        <li><time>Jan 2026</time><span>Example: Joined the [Lab Name] as an undergraduate researcher.</span></li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="entries">
+      <article class="entry">
+        <!-- Replace with: <img class="thumb" src="assets/pub1.png" alt=""> -->
+        <div class="thumb">figure / gif</div>
+        <div class="entry-body">
+          <h3>[Paper Title Goes Here: A Short, Descriptive Subtitle]</h3>
+          <p class="authors"><span class="me">Guanlin Huang</span>, [Co-author], [Co-author], [Advisor]</p>
+          <p class="venue">[Conference or Workshop Name], 2026 <span class="tag">Under review</span></p>
+          <div class="btns"><a href="#">Paper</a><a href="#">arXiv</a><a href="#">Code</a><a href="#">Website</a></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="thumb">figure / gif</div>
+        <div class="entry-body">
+          <h3>[Co-authored Paper Title]</h3>
+          <p class="authors">[First Author], <span class="me">Guanlin Huang</span>, [Advisor]</p>
+          <p class="venue">[Journal or Conference], 2026</p>
+          <div class="btns"><a href="#">Paper</a><a href="#">Video</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="thumb">screenshot</div>
+        <div class="entry-body">
+          <h3>[Project Name]</h3>
+          <p class="venue">[Course / Lab / Personal project] · 2026</p>
+          <p class="desc">One or two sentences: what you built, the method or tools, and the result (for example, a number or a demo).</p>
+          <div class="btns"><a href="#">Code</a><a href="#">Demo</a></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="thumb">screenshot</div>
+        <div class="entry-body">
+          <h3>[Project Name]</h3>
+          <p class="venue">[Hackathon / Class] · 2025</p>
+          <p class="desc">One or two sentences describing the problem and what you did.</p>
+          <div class="btns"><a href="#">Code</a><a href="#">Report</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li>
+        <h3>Undergraduate Researcher</h3><span class="when">Jan 2026 – Present</span>
+        <p class="org">[Lab Name], [University] · Advisor: [Name]</p>
+        <p class="what">What you work on, in one sentence.</p>
+      </li>
+      <li>
+        <h3>Research Intern</h3><span class="when">Jun – Aug 2026</span>
+        <p class="org">[Company or Institute]</p>
+        <p class="what">What you built or studied, in one sentence.</p>
+      </li>
+      <li>
+        <h3>Teaching Assistant, [Course Code]</h3><span class="when">Fall 2025</span>
+        <p class="org">[University]</p>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Guanlin Huang · Last updated October 2026</div>
+</footer>
+</body>
+</html>
