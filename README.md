@@ -11,7 +11,7 @@ Everything lives in `index.html`. Replace each `[bracketed]` placeholder.
 ## Deploy
 1. Create a public repo named `<username>.github.io` and push these files.
 2. Settings → Pages → Source: "Deploy from a branch", branch `main`, folder `/`.
-3. Custom domain: `guanlinhuang.com` (the `CNAME` file sets this), then tick "Enforce HTTPS".
+3. Custom domain: `guanlinhuang.com` (GitHub then adds a `CNAME` file), then tick "Enforce HTTPS".
 
 ## DNS (at your registrar)
 | Type  | Name | Value |
