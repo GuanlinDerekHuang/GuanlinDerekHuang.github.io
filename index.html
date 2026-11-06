@@ -201,8 +201,16 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
           <h3>SmartData</h3>
           <p class="venue">Undergraduate research project · 2026</p>
           <p class="desc">An open-source pipeline that turns recordings from an iPhone mounted on a handheld gripper (RGB, depth, and 6-DoF pose) into synchronized, training-ready manipulation datasets in one command. SAM 2 segments the gripper for hindsight contact labels, Moondream 2 and MolmoPoint ground the target object, Rerun shows diagnostics for each trial, and the output exports to LeRobot or Zarr.</p>
-          <p class="desc"><span class="tag">In progress</span> <strong>Geometry-aware target tracking.</strong> An extension that keeps a persistent 3D target by projecting it through calibrated camera poses, uses SAM 2 only as a gated refinement, and detects failures to trigger re-grounding. It is designed for future wrist-camera deployment.</p>
           <div class="btns"><a href="https://github.com/GuanlinDerekHuang/SmartData">Code</a></div>
+        </div>
+      </article>
+      <article class="entry">
+        <a href="assets/smartdata-geometry-tracking.pdf"><img class="thumb" src="assets/smartdata-geometry-tracking.jpg" alt="First page of the proposal Geometry-Based Target Tracking with Gated SAM 2 Refinement"></a>
+        <div class="entry-body">
+          <h3>Geometry-Based Target Tracking with Gated SAM 2 Refinement</h3>
+          <p class="venue">SmartData extension · Technical proposal, Nov 2026 <span class="tag">In progress</span></p>
+          <p class="desc">Extends SmartData with a persistent 3D target: calibrated camera poses predict where the object should appear in each frame, SAM 2 serves as an independent visual check with gated refinement, and large disagreement triggers re-grounding. The first milestone uses recorded iPhone poses, with robot wrist-camera deployment to follow.</p>
+          <div class="btns"><a href="assets/smartdata-geometry-tracking.pdf">Proposal (PDF)</a></div>
         </div>
       </article>
     </div>
