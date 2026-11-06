@@ -129,6 +129,7 @@ details .news { margin-top: .45rem; }
 .venue { margin: .1rem 0 .5rem; font-style: italic; }
 .venue .tag { font-style: normal; font-size: .75rem; font-weight: 700; letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); padding: .1rem .45rem; border-radius: 3px; margin-left: .35rem; }
 .desc { margin: 0 0 .5rem; font-size: .97rem; }
+.desc .tag { font-size: .75rem; font-weight: 700; letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); padding: .1rem .45rem; border-radius: 3px; }
 .btns { display: flex; flex-wrap: wrap; gap: .4rem; }
 .btns a { font: 500 .78rem var(--mono); padding: .2rem .55rem; border: 1px solid var(--rule); border-radius: 3px; }
 .btns a:hover { border-color: var(--accent); text-decoration: none; }
@@ -174,10 +175,11 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <img class="photo" src="assets/photo.jpg" alt="Guanlin Derek Huang">
     <div class="profile-text">
       <h1>Guanlin Derek Huang <span class="native">黄冠璘</span></h1>
-      <p class="role">Undergraduate, Computer Engineering / Industrial Engineering · Purdue University</p>
+      <p class="role">B.S. Industrial Engineering · Purdue University · Expected May 2027</p>
       <div class="bio">
         <p>I am an undergraduate student in Purdue University's College of Engineering and an undergraduate research assistant in the Purdue Mechanisms and Robotics Systems Lab (MARS), advised by Prof. Yu She.</p>
         <p>My research focuses on learning algorithms and policies for robotic manipulation, with the goal of letting robots perform everyday manipulation tasks with human-level precision and adaptability.</p>
+        <p><strong>Research interests:</strong> robot learning, visuotactile manipulation, world models, and imitation learning.</p>
       </div>
       <p class="contact"><a href="mailto:huan1803@purdue.edu">huan1803@purdue.edu</a></p>
       <ul class="links">
@@ -198,7 +200,8 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
         <div class="entry-body">
           <h3>SmartData</h3>
           <p class="venue">Undergraduate research project · 2026</p>
-          <p class="desc">A pipeline that turns recordings from an iPhone mounted on a handheld two-finger gripper into labeled, synchronized datasets for imitation learning. It reproduces the data collection and labeling stage of Contact-Anchored Policies (CAP): SAM 2 tracks the gripper and object, Moondream 2 grounds the target, Rerun visualizes each trial, and the output is a LeRobot dataset for training a VQ-BeT policy.</p>
+          <p class="desc">An open-source pipeline that turns recordings from an iPhone mounted on a handheld gripper (RGB, depth, and 6-DoF pose) into synchronized, training-ready manipulation datasets in one command. SAM 2 segments the gripper for hindsight contact labels, Moondream 2 and MolmoPoint ground the target object, Rerun shows diagnostics for each trial, and the output exports to LeRobot or Zarr.</p>
+          <p class="desc"><span class="tag">In progress</span> <strong>Geometry-aware target tracking.</strong> An extension that keeps a persistent 3D target by projecting it through calibrated camera poses, uses SAM 2 only as a gated refinement, and detects failures to trigger re-grounding. It is designed for future wrist-camera deployment.</p>
           <div class="btns"><a href="https://github.com/GuanlinDerekHuang/SmartData">Code</a></div>
         </div>
       </article>
@@ -209,9 +212,9 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <h2>Research</h2>
     <ul class="timeline">
       <li>
-        <h3>Dexterous Hand Manipulation Policy Development</h3><span class="when">Oct 2025 – Present</span>
+        <h3>Undergraduate Research Assistant</h3><span class="when">Oct 2025 – Present</span>
         <p class="org">Mechanisms and Robotics Systems Lab (MARS), Purdue · Prof. Yu She</p>
-        <p class="what">Developing and testing a new arm controller for the UR5 and Franka Panda, validated in MuJoCo, and working on the dexterous hand team training VLA/VLM-based manipulation policies.</p>
+        <p class="what">Contributing to Atomic Policy, a framework that breaks long-horizon manipulation into task planning, visual grounding, action-specific Diffusion Policy skills, and execution checking, for an ongoing conference manuscript. Built the SmartData pipeline, developed UR5 and Franka Panda control workflows in MuJoCo and on hardware, and work with Ph.D. researchers on dexterous-hand and VLA/VLM policies.</p>
       </li>
       <li>
         <h3>Midwest Power Grid Capacity Expansion Study</h3><span class="when">Apr 2025 – Oct 2025</span>
@@ -251,12 +254,12 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <h2>Experience</h2>
     <ul class="timeline">
       <li>
-        <h3>NAND Development and Validation Intern</h3><span class="when">Jun 2024 – Aug 2024</span>
+        <h3>NAND Development and Validation Intern</h3><span class="when">May 2024 – Aug 2024</span>
         <p class="org">Innogrit</p>
         <p class="what">Ran chip validation tests and analyzed NAND endurance, latency, and error behavior, debugging over I²C and SMBus with Python, C/C++, and Verilog.</p>
       </li>
       <li>
-        <h3>Event Planning Secretary &amp; Vice Chair, Career Development</h3><span class="when">Aug 2025 – Present</span>
+        <h3>Event Planning Secretary &amp; Vice Chair, Career Development</h3><span class="when">Aug 2025 – Jun 2026</span>
         <p class="org">Purdue Chinese Students and Scholars Association</p>
         <p class="what">Coordinate student event logistics, maintain alumni relationships, and host company information sessions.</p>
       </li>
@@ -265,7 +268,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Guanlin Derek Huang · Last updated October 2026</div>
+  <div class="wrap">© 2026 Guanlin Derek Huang · Last updated November 2026</div>
 </footer>
 </body>
 </html>
