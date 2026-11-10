@@ -129,6 +129,8 @@ details .news { margin-top: .45rem; }
 .venue { margin: .1rem 0 .5rem; font-style: italic; }
 .venue .tag { font-style: normal; font-size: .75rem; font-weight: 700; letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); padding: .1rem .45rem; border-radius: 3px; margin-left: .35rem; }
 .desc { margin: 0 0 .5rem; font-size: .97rem; }
+.thumb.logo { background: var(--surface); object-fit: contain; }
+.note { margin: 0 0 .5rem; font-size: .85rem; color: var(--muted); }
 .desc .tag { font-size: .75rem; font-weight: 700; letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); padding: .1rem .45rem; border-radius: 3px; }
 .btns { display: flex; flex-wrap: wrap; gap: .4rem; }
 .btns a { font: 500 .78rem var(--mono); padding: .2rem .55rem; border: 1px solid var(--rule); border-radius: 3px; }
@@ -162,6 +164,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
     <a class="brand" href="#top">Guanlin Huang</a>
     <nav aria-label="Sections">
       <ul>
+        <li><a href="#publications">Publications</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -191,6 +194,22 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
       </ul>
     </div>
   </div>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="entries">
+      <article class="entry">
+        <img class="thumb logo" src="assets/atomic-policy.png" alt="Mechanisms and Robotic Systems (MARS) Lab logo">
+        <div class="entry-body">
+          <h3>Atomic Policy: Composing Atomic Manipulation Skills with Agentic Reasoning</h3>
+          <p class="authors">Kaidi Zhang*, Pengyuan Guo*, Zhengtong Xu*, Caiyi Zhang, Huayi Gou, <span class="me">Guanlin Huang</span>, Aaron Lim, Anas Rafei, Yu She</p>
+          <p class="venue">Under review, 2026</p>
+          <p class="note">* Equal contribution</p>
+          <p class="desc"><strong>Abstract:</strong> to be posted.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <section id="projects">
     <h2>Projects</h2>
