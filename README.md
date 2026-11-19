@@ -3,7 +3,10 @@
 Personal academic website. Plain HTML/CSS, hosted on GitHub Pages.
 
 ## Edit content
-Everything lives in `index.html`. Replace each `[bracketed]` placeholder.
+Page content lives in `index.html` (home) and `hobbies.html` (linked from the nav only). Replace each `[bracketed]` placeholder.
+- Shared styles and the light/dark color tokens: `assets/site.css`. Light mode is white with baby and royal blue; dark mode is Purdue black and gold.
+- Theme toggle and the cursor-reactive background: `assets/site.js`. Background colors come from `--particle`, `--particle-alt` and `--glow` in `site.css`.
+- Hobby photos: put them in `assets/hobbies/` and swap each `<div class="pic">` for `<img class="pic" src="assets/hobbies/name.jpg" alt="...">`.
 - Photo: put `photo.jpg` in `assets/` and swap the `<div class="photo">` for `<img class="photo" src="assets/photo.jpg" alt="Guanlin Huang">`.
 - CV: save it as `assets/cv.pdf`.
 - Publication/project images: `assets/pub1.png` etc., swapped in the same way as the photo (`<img class="thumb" ...>`).

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hobbies · Guanlin Huang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="What Guanlin Derek Huang does outside the lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  /* Set the theme before first paint: saved choice, else the system setting. */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Guanlin Huang</a>
+    <div class="nav-right">
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="index.html#publications">Publications</a></li>
+          <li><a href="index.html#research">Research</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="hobbies.html" aria-current="page">Hobbies</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2Zm17 0h1a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2ZM5.6 4.2l.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 1.4-1.4Zm13.5 13.5.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 1.4-1.4Zm.7-13.5a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0ZM6.3 17.7a1 1 0 0 1 0 1.4l-.7.7a1 1 0 0 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0Z"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a.6.6 0 0 0-.8-.7A9.5 9.5 0 1 0 21.2 15.4a.6.6 0 0 0-.7-.8Z"/></svg>
+        <span class="knob"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="page-head">
+    <h1>Hobbies</h1>
+    <p>What I get up to outside the lab.</p>
+  </div>
+
+  <section aria-label="Hobbies">
+    <div class="hobbies">
+      <article class="hobby">
+        <div class="pic">[photo]</div>
+        <div class="body">
+          <h3>[Hobby 1]</h3>
+          <p>[A sentence or two about this hobby.]</p>
+        </div>
+      </article>
+      <article class="hobby">
+        <div class="pic">[photo]</div>
+        <div class="body">
+          <h3>[Hobby 2]</h3>
+          <p>[A sentence or two about this hobby.]</p>
+        </div>
+      </article>
+      <article class="hobby">
+        <div class="pic">[photo]</div>
+        <div class="body">
+          <h3>[Hobby 3]</h3>
+          <p>[A sentence or two about this hobby.]</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Guanlin Derek Huang · <a href="index.html">Back to home</a></div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
