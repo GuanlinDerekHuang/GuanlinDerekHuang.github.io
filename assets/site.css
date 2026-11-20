@@ -14,7 +14,7 @@
   --display: "Libre Caslon Display", "Iowan Old Style", Georgia, serif;
   --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  --col: 52rem;
+  --col: 67rem;  /* 1072px incl. 16px gutters = 1040px content */
   color-scheme: light;
 }
 /* Dark: Purdue black and gold */
@@ -76,7 +76,7 @@ nav a:hover { color: var(--accent); text-decoration: none; }
 h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.05; margin: 0 0 .25rem; text-wrap: balance; }
 .native { font-size: 1.1rem; color: var(--muted); margin-left: .35rem; font-family: var(--body); }
 .role { color: var(--muted); margin: 0 0 1rem; }
-.bio { margin: 0 0 1.25rem; max-width: 65ch; }
+.bio { margin: 0 0 1.25rem; max-width: 90ch; }
 .bio p { margin: 0 0 .75rem; }
 .contact { font-family: var(--mono); font-size: .85rem; color: var(--muted); margin: 0 0 1rem; }
 .links { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0; list-style: none; }
@@ -141,7 +141,7 @@ details .news { margin-top: .45rem; }
 .timeline li { display: grid; grid-template-columns: 1fr auto; gap: .1rem 1rem; }
 .timeline .when { font-family: var(--mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .timeline .org { color: var(--muted); grid-column: 1 / -1; margin: 0; }
-.timeline .what { grid-column: 1 / -1; margin: .2rem 0 0; font-size: .97rem; max-width: 65ch; }
+.timeline .what { grid-column: 1 / -1; margin: .2rem 0 0; font-size: .97rem; max-width: 90ch; }
 
 /* Interactive background */
 #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
@@ -169,7 +169,7 @@ main, footer { position: relative; z-index: 1; }
 /* Hobbies */
 .page-head { padding-block: 3rem 1.5rem; }
 .page-head p { color: var(--muted); max-width: 60ch; margin: .5rem 0 0; }
-.hobbies { columns: 2 19rem; column-gap: 1.25rem; } /* Pinterest-style masonry: each card is as tall as its photos need */
+.hobbies { columns: 3 17rem; column-gap: 1.25rem; } /* Pinterest-style masonry: each card is as tall as its photos need */
 .hobbies > .hobby { break-inside: avoid; margin-bottom: 1.25rem; width: 100%; }
 .hobby {
   border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
