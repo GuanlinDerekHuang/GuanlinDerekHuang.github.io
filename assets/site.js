@@ -189,6 +189,9 @@
     var dotsWrap = box.querySelector(".ss-dots");
     var n = slides.length, cur = 0, timer = null, paused = false;
     if (!n) return;
+    // Optional per-photo captions: <li data-caption="..."> updates .ss-caption in the same card.
+    var card = box.closest(".hobby") || box.parentNode;
+    var capEl = card.querySelector(".ss-caption");
 
     // Size the frame to the widest photo in the set (from width/height attributes, refined once loaded).
     function sizeFrame() {
@@ -231,6 +234,8 @@
       // Warm up the next photo so it is ready when the carousel advances.
       var nx = slides[(cur + 1) % n].querySelector("img"); if (nx) nx.loading = "eager";
       count.textContent = (cur + 1) + " / " + n;
+      var cap = slides[cur].getAttribute("data-caption");
+      if (capEl && cap !== null) capEl.textContent = cap;
     }
 
     box.querySelector(".prev").addEventListener("click", function () { go(cur - 1); restart(); });
