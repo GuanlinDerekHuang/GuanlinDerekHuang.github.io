@@ -232,3 +232,4 @@ nav a[aria-current="page"] { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .slide, .slide.is-active, .ss-dots button { transition: none; } }
 .hobby .score { font-size: .9rem; color: var(--muted); }
 .hobby .score strong { color: var(--ink); font-family: var(--mono); font-weight: 500; letter-spacing: .02em; }
+.hobby .ss-caption { min-height: 1.6em; }
