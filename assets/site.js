@@ -180,7 +180,7 @@
   if (reduce) draw(); else start();
 })();
 
-/* Hobby slideshows */
+/* Hobby carousels */
 (function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   Array.prototype.forEach.call(document.querySelectorAll("[data-slideshow]"), function (box) {
@@ -190,9 +190,27 @@
     var n = slides.length, cur = 0, timer = null, paused = false;
     if (!n) return;
 
-    Array.prototype.forEach.call(slides, function (s, i) {
+    // Size the frame to the widest photo in the set (from width/height attributes, refined once loaded).
+    function sizeFrame() {
+      var best = 0;
+      Array.prototype.forEach.call(slides, function (s) {
+        var img = s.querySelector("img"); if (!img) return;
+        var w = img.naturalWidth || +img.getAttribute("width"), h = img.naturalHeight || +img.getAttribute("height");
+        if (w && h && w / h > best) best = w / h;
+      });
+      if (best) track.style.setProperty("--frame", best.toFixed(4));
+    }
+    sizeFrame();
+    Array.prototype.forEach.call(slides, function (s) {
       var img = s.querySelector("img");
-      if (img) s.style.setProperty("--slide-bg", 'url("' + img.src + '")');
+      if (img && !img.complete) img.addEventListener("load", sizeFrame, { once: true });
+    });
+
+    var count = document.createElement("span");
+    count.className = "ss-count"; count.setAttribute("aria-hidden", "true");
+    box.appendChild(count);
+
+    Array.prototype.forEach.call(slides, function (s, i) {
       var d = document.createElement("button");
       d.type = "button";
       d.setAttribute("aria-label", "Photo " + (i + 1) + " of " + n);
@@ -201,24 +219,19 @@
     });
     var dots = dotsWrap.querySelectorAll("button");
 
-    function mark(i) {
-      cur = i;
-      for (var k = 0; k < dots.length; k++) dots[k].setAttribute("aria-current", k === i ? "true" : "false");
-    }
     function go(i) {
-      i = (i + n) % n;
-      track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? "auto" : "smooth" });
-      mark(i);
+      cur = (i + n) % n;
+      for (var k = 0; k < n; k++) {
+        var on = k === cur;
+        slides[k].classList.toggle("is-active", on);
+        slides[k].setAttribute("aria-hidden", on ? "false" : "true");
+        dots[k].setAttribute("aria-current", on ? "true" : "false");
+        if (on) { var img = slides[k].querySelector("img"); if (img) img.loading = "eager"; }
+      }
+      // Warm up the next photo so it is ready when the carousel advances.
+      var nx = slides[(cur + 1) % n].querySelector("img"); if (nx) nx.loading = "eager";
+      count.textContent = (cur + 1) + " / " + n;
     }
-    // Keep the dots in sync when the visitor swipes or scrolls the track.
-    var raf = 0;
-    track.addEventListener("scroll", function () {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(function () {
-        var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
-        if (i !== cur && i >= 0 && i < n) mark(i);
-      });
-    }, { passive: true });
 
     box.querySelector(".prev").addEventListener("click", function () { go(cur - 1); restart(); });
     box.querySelector(".next").addEventListener("click", function () { go(cur + 1); restart(); });
@@ -227,15 +240,24 @@
       if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); restart(); }
     });
 
+    // Swipe on touch screens.
+    var sx = null, sy = null;
+    box.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    box.addEventListener("touchend", function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
+      sx = sy = null;
+    }, { passive: true });
+
     function tick() { if (!paused && !document.hidden) go(cur + 1); }
     function restart() { if (reduce) return; clearInterval(timer); timer = setInterval(tick, 5000); }
-    box.addEventListener("pointerenter", function () { paused = true; });
-    box.addEventListener("pointerleave", function () { paused = false; });
+    box.addEventListener("mouseenter", function () { paused = true; });
+    box.addEventListener("mouseleave", function () { paused = false; });
     box.addEventListener("focusin", function () { paused = true; });
     box.addEventListener("focusout", function () { paused = false; });
-    window.addEventListener("resize", function () { track.scrollTo({ left: cur * track.clientWidth }); });
 
-    mark(0);
+    go(0);
     restart();
   });
 })();

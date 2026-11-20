@@ -169,7 +169,8 @@ main, footer { position: relative; z-index: 1; }
 /* Hobbies */
 .page-head { padding-block: 3rem 1.5rem; }
 .page-head p { color: var(--muted); max-width: 60ch; margin: .5rem 0 0; }
-.hobbies { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.25rem; }
+.hobbies { columns: 2 19rem; column-gap: 1.25rem; } /* Pinterest-style masonry: each card is as tall as its photos need */
+.hobbies > .hobby { break-inside: avoid; margin-bottom: 1.25rem; width: 100%; }
 .hobby {
   border: 1px solid var(--rule); border-radius: 8px; overflow: hidden;
   background: color-mix(in srgb, var(--surface) 85%, transparent);
@@ -179,7 +180,7 @@ main, footer { position: relative; z-index: 1; }
 .hobby:hover { transform: translateY(-3px); border-color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .hobby, .hobby:hover { transition: none; transform: none; } }
 .hobby .pic {
-  aspect-ratio: 1 / 1; width: 100%; object-fit: cover; display: grid; place-items: center;
+  aspect-ratio: 4 / 3; width: 100%; object-fit: cover; display: grid; place-items: center;
   background:
     repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--accent) 10%, transparent) 10px 11px),
     var(--accent-soft);
@@ -203,21 +204,16 @@ footer { border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem; color:
 }
 nav a[aria-current="page"] { color: var(--accent); }
 
-/* Hobby slideshow: swipeable track with arrows, dots and gentle autoplay */
-.slideshow { position: relative; border-bottom: 1px solid var(--rule); background: #000; }
-.slides {
-  list-style: none; margin: 0; padding: 0; display: flex; aspect-ratio: 1 / 1;
-  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
-}
-.slides::-webkit-scrollbar { display: none; }
+/* Hobby carousel: one photo at a time in a black frame sized to the set's widest photo,
+   so a landscape photo fills it and portrait photos keep the same height with black sides. */
+.slideshow { position: relative; background: #000; border-bottom: 1px solid var(--rule); overflow: hidden; touch-action: pan-y; }
+.slides { list-style: none; margin: 0; padding: 0; position: relative; width: 100%; aspect-ratio: var(--frame, 4 / 3); }
 .slides:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.slide { flex: 0 0 100%; scroll-snap-align: center; position: relative; overflow: hidden; }
-.slide::before { /* blurred fill so portrait and landscape photos both show in full */
-  content: ""; position: absolute; inset: -20px; background: var(--slide-bg) center / cover; filter: blur(18px) brightness(.6);
-}
-.slide img { position: relative; width: 100%; height: 100%; object-fit: contain; display: block; }
+.slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility 0s linear .45s; }
+.slide.is-active { opacity: 1; visibility: visible; transition: opacity .45s ease; }
+.slide img { display: block; width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: center; user-select: none; -webkit-user-drag: none; }
 .ss-btn {
-  position: absolute; top: 50%; transform: translateY(-50%); width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 2.1rem; height: 2.1rem; border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); cursor: pointer; padding: 0;
   background: color-mix(in srgb, var(--bg) 70%, transparent); color: var(--ink); backdrop-filter: blur(4px);
   display: grid; place-items: center; opacity: .85; transition: opacity .2s, background-color .2s;
@@ -226,10 +222,11 @@ nav a[aria-current="page"] { color: var(--accent); }
 .ss-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .ss-btn svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
 .ss-btn.prev { left: .6rem; } .ss-btn.next { right: .6rem; }
-.ss-dots { position: absolute; left: 0; right: 0; bottom: .6rem; display: flex; justify-content: center; gap: .4rem; }
+.ss-dots { position: absolute; left: 0; right: 0; bottom: .6rem; z-index: 2; display: flex; justify-content: center; gap: .4rem; }
 .ss-dots button {
   width: .5rem; height: .5rem; border-radius: 999px; border: 0; padding: 0; cursor: pointer;
   background: rgba(255,255,255,.55); transition: width .25s, background-color .25s;
 }
 .ss-dots button[aria-current="true"] { width: 1.3rem; background: var(--accent); }
-@media (prefers-reduced-motion: reduce) { .slides { scroll-behavior: auto; } .ss-dots button { transition: none; } }
+.ss-count { position: absolute; top: .55rem; right: .6rem; z-index: 2; font: 500 .72rem var(--mono); color: #fff; background: rgba(0,0,0,.45); padding: .1rem .45rem; border-radius: 999px; }
+@media (prefers-reduced-motion: reduce) { .slide, .slide.is-active, .ss-dots button { transition: none; } }
